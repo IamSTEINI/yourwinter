@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+* {
+    font-family: "Geist Mono";
+    color: white;
+}
+
+h1,h2,h3 {
+    font-weight: 900;
+}
+
+html {
+    background-color: #111117;
+}
+
+.nodrag {
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-window-dragging: no-drag;
+}
+
+.mask {
+    -webkit-text-stroke: 1px #fff;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+button {
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: color 160ms;
+}
+
+button:hover {
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #111117 !important;
+    background-color: white;
+}

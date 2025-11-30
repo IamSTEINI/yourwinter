@@ -132,6 +132,9 @@ function Home() {
 				SPECIAL
 			</h1>
 			<button
+				onClick={() => {
+					window.location.href = "/yourwinter";
+				}}
 				className="fixed"
 				style={{
 					transform: `translate3d(${Math.max(

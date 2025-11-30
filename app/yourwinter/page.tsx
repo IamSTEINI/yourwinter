@@ -20,6 +20,16 @@ function YourWinter() {
 		{ name: string; value: number }[]
 	>([]);
 	const [snowDates, setSnowDates] = useState<string[]>([]);
+
+	// LAT, LONG
+	const cityPresets = [
+		{ name: "TOKYO", lat: 35.6895, lon: 139.6917 },
+		{ name: "BERLIN", lat: 52.5244, lon: 13.4105 },
+		{ name: "NEW YORK", lat: 40.7143, lon: -74.006 },
+		{ name: "LONDON", lat: 51.5085, lon: -0.1257 },
+		{ name: "MOSCOW", lat: 55.7522, lon: 37.6156 },
+	];
+
 	useEffect(() => {
 		if (!("geolocation" in navigator)) {
 			setGeoError("Geolocation is not supported!");
@@ -105,7 +115,7 @@ function YourWinter() {
 				) {
 					const t = times[i];
 					const temp = Number(Number(temps[i]).toFixed(2));
-					const rain = Number(rains[i]);
+					const rain = Number(Number(rains[i]).toFixed(2));
 					let label = "";
 					try {
 						label =
@@ -163,12 +173,26 @@ function YourWinter() {
 
 	return (
 		<div className="flex flex-col items-center mt-10 px-4">
-			<h1 className="text-5xl mb-10 group cursor-pointer select-none">
+			<h1
+				onClick={() => {
+					window.location.href = "/";
+				}}
+				className="text-5xl mb-10 group cursor-pointer select-none">
 				YOUR{" "}
 				<p className="mask ml-10 group-hover:-ml-5 transition-all">
 					WINTER
 				</p>
 			</h1>
+
+			<div className="marquee w-full max-w-xl h-20 border border-[#343445] hover:border-[#565667] transition-all rounded-md mb-5">
+				<div className="flex flex-row font-semibold italic">
+					<span>TOKYO</span>
+					<span>BERLIN</span>
+					<span>NEW YORK</span>
+					<span>LONDON</span>
+					<span>MOSCOW</span>
+				</div>
+			</div>
 
 			<div className="max-w-xl w-full flex flex-col justify-center items-start border p-6 rounded-md border-[#343445] hover:border-[#565667] transition-all select-none">
 				<div className="flex items-center gap-3 w-full">
@@ -304,7 +328,7 @@ function YourWinter() {
 								Hourly precipitation
 							</span>
 						</div>
-						<div className="w-full h-full translate-y-5">
+						<div className="w-full h-full translate-y-2">
 							<CAreaChart
 								data={rainChartData}
 								valueName={"mm"}

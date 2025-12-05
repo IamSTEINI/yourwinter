@@ -79,6 +79,13 @@ function Home() {
 				<span>Scroll</span>
 				<ChevronDown size={18} />
 			</div>
+			<button
+				onClick={() => {
+					window.location.href = "/yourwinter";
+				}}
+				className="mb-10">
+				SEE YOUR WINTER
+			</button>
 			<h1
 				className="text-5xl fixed"
 				style={{

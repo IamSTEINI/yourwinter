@@ -204,8 +204,7 @@ function YourWinter() {
 								<span className="text-red-400">{geoError}</span>
 							) : latitude && longitude ? (
 								<span>
-									{latitude.toFixed(4)},{" "}
-									{longitude.toFixed(4)}
+									{latitude.toFixed(4)},{longitude.toFixed(4)}
 								</span>
 							) : (
 								<span>Detecting…</span>
